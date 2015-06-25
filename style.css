@@ -1,0 +1,22 @@
+#inputSection{
+	width: 20.9em;
+	margin: 6em auto 0;
+  	text-align: center;
+}
+
+#logo{
+	margin-bottom: 2em;
+}
+
+#photoSection{
+    margin-top: 2em;
+    left: 50%;
+    text-align: center;
+}
+
+.photos img
+{
+	border:2px solid black;
+	margin:10px;
+}
+
