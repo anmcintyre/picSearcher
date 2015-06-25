@@ -6,6 +6,8 @@ angular.module('instagramSearcher', ['ngMessages', 'ngAnimate'])
   $scope.httpError = false;
 
   $scope.submit = function(form) {
+     $scope.text = $scope.text.replace(/'/g, "");
+
     if ( $scope.text.trim().length === 0){
       $scope.photos = [];  
       $scope.count = -1;  

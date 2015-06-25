@@ -35,3 +35,14 @@ body{
 	padding: 2em;
 	text-align: center;
 }
+
+.photos.ng-enter{
+	transition: 2s linear all;
+	opacity: 0;
+	width: 0px;
+}
+
+.photos.ng-enter-active{
+	opacity: 1;
+	width: 100%;
+}
