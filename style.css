@@ -1,3 +1,6 @@
+body{
+	font-family: Verdana, Arial, sans-serif;
+}
 #inputSection{
 	width: 20.9em;
 	margin: 6em auto 0;
@@ -20,3 +23,15 @@
 	margin:10px;
 }
 
+.ng-active, #serverErrorSection{
+	color: red;
+	border: 1px solid red;
+	margin-top:5px;
+}
+
+#serverErrorSection{
+	width: 40em; 
+	margin: 0 auto;
+	padding: 2em;
+	text-align: center;
+}

@@ -4,20 +4,33 @@
 	<meta charset="UTF-8">
 	<title>Instagram Searcher</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-messages.js"></script> 
+	<script type="text/javascript" src="https://code.angularjs.org/1.3.14/angular-animate.min.js"></script>		
 	<script type="text/javascript" src="main.js"></script>
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body ng-controller="MyController">
 	<section id="inputSection">
-		<img id="logo" src="images/ng-instagram.png" alt="Instagram Searcher" />
-		<input type="text"  placeholder="Enter a tag to search" ng-model="text" />
-		<input type="submit" value="Submit" ng-click="submit()"/>
+		<form name="myForm" ng-submit="submit(this)" novalidate>
+			<img id="logo" src="images/ng-instagram.png" alt="Instagram Searcher" />
+			<input type="text" name="tag"  placeholder="Enter a tag to search" ng-model="text" required/>
+			<input type="submit" value="Submit"/>
+			<div ng-messages="myForm.$submitted && myForm.tag.$error" role="alert">
+				<div ng-message="required">Please enter a tag to search</div>
+			</div>			
+		</form>
 	</section>
+		
 	<section id="photoSection">
+		<div ng-show="count != -1">We found {{ count }} results for "{{ lastSearch }}"</div>
 		<span ng-repeat="photo in photos" class="photos">
 			<a href="{{photo.link}}" target="_blank">
 				<img ng-src="{{ photo.images.low_resolution.url }}" alt="{{photo.caption.text}}" title="{{photo.caption.text}}" /></a>
 		</span>
+	</section>
+
+	<section id="serverErrorSection" ng-show="httpError" class="ng-active">
+		A status {{ status }} was returned when trying to access url {{ url }}
 	</section>
 </body>
 </html>
